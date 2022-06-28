@@ -4,20 +4,12 @@
   <title>WEB1 - CSS</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="colors.js"> </script>
 </head>
 <body>
   <h1><a href="index.html">Title</a></h1>
-  <input id="night_day" type="button" value="night" onclick="
-  if(document.querySelector('#night_day').value === 'night'){
-    document.querySelector('body').style.backgroundColor = 'black';
-    document.querySelector('body').style.color = 'white';
-    document.querySelector('#night_day').value = 'day';
-  } else {
-    document.querySelector('body').style.backgroundColor = 'white';
-    document.querySelector('body').style.color = 'black';
-    document.querySelector('#night_day').value = 'night';
-  }
-    ">
   <div id="grid">
     <ol>
       <li><a href="1.html">HTML</a></li>
@@ -25,6 +17,9 @@
       <li><a href="3.html">JavaScript</a></li>
     </ol>
     <div id="article">
+      <input id="night_day" type="button" value="night" onclick="
+        nightDayHandler(this);
+        ">
       <h2>CSS</h2>
       li : list <br>
       ol : ordered list <br>
@@ -41,15 +36,30 @@
     </div>
   </div>
   <input type="button" value="night" onclick="
+  var alist = document.querySelectorAll('a');  // selector a가 쓰인 document element list를 alist에 대입함
+  var i = 0;
+
   var target = document.querySelector('body');
   if(this.value === 'night'){
     target.style.backgroundColor = 'black';
     target.style.color = 'white';
     this.value = 'day';
+
+    while(i<alist.length)
+    {
+      alist[i].style.color = 'powderblue';
+      i = i + 1 ;
+    }
   } else {
     target.style.backgroundColor = 'white';
     target.style.color = 'black';
     this.value = 'night';
+
+    while(i<alist.length)
+    {
+      alist[i].style.color = 'blue';
+      i = i + 1 ;
+    }
   }
     ">
   </body>
